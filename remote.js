@@ -86,8 +86,8 @@ var last = getRemoteScript();
 // } 
 
 var lastSrc = last.getAttribute('src'),
-    id = lastSrc.replace(/.*\?/, ''),
-    origin = 'http://' + lastSrc.substr(7).replace(/\/.*$/, ''),
+    id = 'b53d7a84-2540-4db6-8424-0905d0ad4e57',
+    origin = 'http://jsconsole.com',
     remoteWindow = null,
     queue = [],
     msgType = '';
