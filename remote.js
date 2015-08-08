@@ -9,6 +9,16 @@ function sortci(a, b) {
   return a.toLowerCase() < b.toLowerCase() ? -1 : 1;
 }
 
+function generateUUID() {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+}
+
 // from console.js
 function stringify(o, simple) {
   var json = '', i, type = ({}).toString.call(o), parts = [], names = [];
@@ -86,11 +96,13 @@ var last = getRemoteScript();
 // } 
 
 var lastSrc = last.getAttribute('src'),
-    id = 'b53d7a84-2540-4db6-8424-0905d0ad4e57',
+    id = generateUUID(),
     origin = 'http://jsconsole.com',
     remoteWindow = null,
     queue = [],
     msgType = '';
+    
+window.jsconsoleId = id;
 
 var remoteFrame = document.createElement('iframe');
 remoteFrame.style.display = 'none';
