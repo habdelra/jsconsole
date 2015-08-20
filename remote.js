@@ -137,7 +137,7 @@ var remote = {
       response.push(stringify(args, true));
     });
 
-	var msg = JSON.stringify({ response: (new Date).toString() + ' - ' + response, cmd: 'remote console.log', type: msgType });
+	var msg = JSON.stringify({ response: (new Date()).toString() + ' - ' + response, cmd: 'remote console.log', type: msgType });
 
     if (remoteWindow) {
       remoteWindow.postMessage(msg, origin);
@@ -166,7 +166,7 @@ var remote = {
     }
   },
   error: function (error, cmd) {
-    var msg = JSON.stringify({ response: error.message, cmd: cmd, type: 'error' });
+    var msg = JSON.stringify({ response: (new Date()).toString() + ' - ' + error.message, cmd: cmd, type: 'error' });
     if (remoteWindow) {
       remoteWindow.postMessage(msg, origin);
     } else {
