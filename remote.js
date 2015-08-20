@@ -137,7 +137,7 @@ var remote = {
       response.push(stringify(args, true));
     });
 
-	var msg = JSON.stringify({ response: response, cmd: 'remote console.log', type: msgType });
+	var msg = JSON.stringify({ response: (new Date).toString() + ' - ' + response, cmd: 'remote console.log', type: msgType });
 
     if (remoteWindow) {
       remoteWindow.postMessage(msg, origin);
